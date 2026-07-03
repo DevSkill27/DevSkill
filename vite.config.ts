@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import UnoCSS from 'unocss/vite'
 
 // On GitHub Actions, GITHUB_REPOSITORY is set to "owner/repo".
 // For a project page (e.g. /repo-name/), the base must include the repo name;
@@ -10,6 +11,6 @@ const base =
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), UnoCSS()],
   base,
 })

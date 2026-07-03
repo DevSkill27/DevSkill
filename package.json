@@ -10,14 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lucide-react": "^1.23.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@iconify-json/lucide": "^1.2.116",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@unocss/preset-attributify": "^66.7.4",
+    "@unocss/preset-icons": "^66.7.4",
+    "@unocss/preset-uno": "^66.7.4",
     "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.6.0",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -25,6 +30,7 @@
     "globals": "^17.7.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.62.0",
+    "unocss": "^66.7.4",
     "vite": "^8.1.1"
   }
 }
