@@ -11,14 +11,14 @@ export function Artifacts() {
           label="Data availability"
           title={
             <>
-              Built for inspection.
+              Experimental data.
               <br className="hidden sm:block" /> Preparing for release.
             </>
           }
-          description="The method implementation, collection software, and experimental data will be made available here. Links remain inactive while the artifact package is finalized."
+          description="The experimental dataset used in this study will be released soon."
         />
 
-        <div className="mt-9 grid gap-4 lg:grid-cols-3">
+        <div className="mt-9 grid gap-4">
           {artifacts.map((artifact) => {
             const Icon = artifact.icon
             return (

@@ -1,7 +1,7 @@
 import { AcademicApproach } from './components/AcademicApproach'
 import { AcademicHero } from './components/AcademicHero'
 import { Artifacts } from './components/Artifacts'
-import { Demo } from './components/Demo'
+import { Demonstration } from './components/Demonstration'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Motivation } from './components/Motivation'
@@ -16,7 +16,7 @@ function App() {
         <Motivation />
         <AcademicApproach />
         <Results />
-        <Demo />
+        <Demonstration />
         <Artifacts />
       </main>
       <Footer />
