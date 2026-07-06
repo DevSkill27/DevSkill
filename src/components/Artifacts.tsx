@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink } from 'lucide-react'
+import { ArrowUpRight, Download } from 'lucide-react'
 import { artifacts } from '../data/siteData'
 import { SectionIntro } from './SectionIntro'
 
@@ -11,43 +11,44 @@ export function Artifacts() {
           label="Data availability"
           title={
             <>
-              Experimental data.
-              <br className="hidden sm:block" /> Preparing for release.
+              DevSkill dataset.
+              <br className="hidden sm:block" /> Available for download.
             </>
           }
-          description="The experimental dataset used in this study will be released soon."
+          description="The research artifact accompanying the paper provides 63 reproducible repository-level tasks in 21 clusters across six open-source projects."
         />
 
         <div className="mt-9 grid gap-4">
           {artifacts.map((artifact) => {
             const Icon = artifact.icon
             return (
-              <a
+              <article
                 key={artifact.title}
-                href=""
-                onClick={(event) => event.preventDefault()}
-                aria-label={`${artifact.title} — coming soon`}
-                className="focus-ring group flex min-h-48 flex-col border border-blue-200 bg-white p-5 text-ink transition-colors hover:border-cobalt sm:p-6"
+                className="flex min-h-48 flex-col border border-blue-200 bg-white p-5 text-ink sm:p-6"
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start">
                   <span className="grid h-10 w-10 place-items-center rounded bg-blue-50 text-cobalt">
                     <Icon size={18} />
                   </span>
-                  <ExternalLink
-                    size={17}
-                    className="text-ink/28 transition-colors group-hover:text-ink"
-                  />
                 </div>
                 <div className="mt-auto pt-7">
-                  <span className="eyebrow text-cobalt">Coming soon</span>
+                  <span className="eyebrow text-cobalt">{artifact.release}</span>
                   <h3 className="mt-2 font-display text-xl font-600 tracking-[-0.03em]">
                     {artifact.title}
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-ink/48">
                     {artifact.detail}
                   </p>
+                  <a
+                    href={artifact.url}
+                    aria-label={`Download ${artifact.title}`}
+                    className="focus-ring mt-5 inline-flex w-fit items-center gap-2 rounded-md bg-cobalt px-4 py-2.5 text-xs font-700 text-white shadow-sm transition-colors hover:bg-blue-700"
+                  >
+                    Download dataset
+                    <Download size={14} />
+                  </a>
                 </div>
-              </a>
+              </article>
             )
           })}
         </div>

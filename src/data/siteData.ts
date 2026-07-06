@@ -116,8 +116,11 @@ export const modelResults = [
 
 export const artifacts = [
   {
-    title: 'Experimental Data',
-    detail: 'Tasks, rubrics, traces, Skills, and evaluation outputs.',
+    title: 'DevSkill Dataset',
+    detail:
+      'Spanning Echo, Excalidraw, Gin, JavaParser, Spring Boot, and SymPy, the dataset includes task prompts, reference patches, evaluation rubrics, sanitized developer behavior traces, process-oriented Task Skills, 336 coding-agent runs from 42 paired transfers, and a 32-task longitudinal study of Skill Pool evolution. Tasks are reconstructible from recorded upstream commits and setup patches. Local Office access records and agent conversation logs are excluded for privacy.',
+    url: 'https://github.com/DevSkill27/DevSkill/releases/download/dataset-v1/devskill-dataset.zip',
+    release: 'Dataset v1',
     icon: FileText,
   },
 ]
