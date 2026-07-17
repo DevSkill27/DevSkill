@@ -13,6 +13,10 @@ function ResultChart({
 }: {
   result: (typeof modelResults)[number]
 }) {
+  const axisMin = 50
+  const axisMax = 85
+  const bestScore = Math.max(...result.rows.map((row) => row.value))
+
   return (
     <article className="soft-card overflow-hidden">
       <div className="flex items-start justify-between border-b border-blue-100 px-5 py-4 sm:px-6">
@@ -33,30 +37,45 @@ function ResultChart({
       </div>
 
       <div className="space-y-4 px-5 py-6 sm:px-6">
-        {result.rows.map((row) => (
-          <div key={row.label}>
-            <div className="mb-2 flex items-center justify-between">
-              <span
-                className={`text-xs ${
-                  row.featured ? 'font-700 text-ink' : 'font-500 text-ink/52'
-                }`}
-              >
-                {row.label}
-              </span>
-              <span className="font-mono text-[10px] text-ink/42">
-                {row.value.toFixed(2)}
-              </span>
+        {result.rows.map((row) => {
+          const relativeGain = ((bestScore - row.value) / row.value) * 100
+          const width = ((row.value - axisMin) / (axisMax - axisMin)) * 100
+
+          return (
+            <div key={row.label}>
+              <div className="mb-2 flex items-center justify-between gap-3">
+                <span
+                  className={`text-xs ${
+                    row.featured ? 'font-700 text-ink' : 'font-500 text-ink/52'
+                  }`}
+                >
+                  {row.label}
+                </span>
+                <span className="flex items-center gap-2 font-mono text-[10px]">
+                  {!row.featured && (
+                    <span className="rounded-full bg-blue-50 px-2 py-0.5 font-600 text-cobalt">
+                      DevSkill ↑ {relativeGain.toFixed(1)}%
+                    </span>
+                  )}
+                  <span className="text-ink/42">{row.value.toFixed(2)}</span>
+                </span>
+              </div>
+              <div className="relative h-2 overflow-hidden rounded-full bg-ink/[0.065]">
+                <div
+                  className={`h-full rounded-full ${
+                    row.featured ? 'bg-cobalt' : 'bg-ink/24'
+                  }`}
+                  style={{ width: `${Math.max(0, Math.min(100, width))}%` }}
+                />
+              </div>
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-ink/[0.065]">
-              <div
-                className={`h-full rounded-full ${
-                  row.featured ? 'bg-cobalt' : 'bg-ink/24'
-                }`}
-                style={{ width: `${row.value}%` }}
-              />
-            </div>
-          </div>
-        ))}
+          )
+        })}
+
+        <div className="flex justify-between border-t border-ink/[0.06] pt-2 font-mono text-[9px] text-ink/32">
+          <span>{axisMin}</span>
+          <span>{axisMax} func. %</span>
+        </div>
       </div>
 
       <div className="flex items-center justify-between border-t border-blue-100 bg-blue-50 px-5 py-3 sm:px-6">

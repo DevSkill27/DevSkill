@@ -117,10 +117,35 @@ export const modelResults = [
 export const artifacts = [
   {
     title: 'DevSkill Dataset',
-    detail:
-      'Spanning Echo, Excalidraw, Gin, JavaParser, Spring Boot, and SymPy, the dataset includes task prompts, reference patches, evaluation rubrics, sanitized developer behavior traces, process-oriented Task Skills, 336 coding-agent runs from 42 paired transfers, and a 32-task longitudinal study of Skill Pool evolution. Tasks are reconstructible from recorded upstream commits and setup patches. Local Office access records and agent conversation logs are excluded for privacy.',
     url: 'https://github.com/DevSkill27/DevSkill/releases/download/dataset-v1/devskill-dataset.zip',
     release: 'Dataset v1',
     icon: FileText,
+  },
+]
+
+export const datasetContents = [
+  {
+    label: 'Reconstructible benchmark',
+    value: '63 tasks · 21 clusters',
+    detail:
+      'Several related but non-identical tasks per cluster, drawn from six production repositories in Go, TypeScript, Java, Kotlin, Groovy, and Python. Each task includes a prompt, developer reference patch, task-specific rubric, and the commit and setup patch needed to recreate its starting state.',
+  },
+  {
+    label: 'Process evidence',
+    value: 'Traces + Task Skills',
+    detail:
+      'Sanitized, timestamped IDE and browser events capture file navigation, code edits, terminal commands and outputs, and page visits. Source tasks also include process-oriented Skills describing localization, constraints, implementation order, validation, failures, and recovery actions.',
+  },
+  {
+    label: 'Paired-transfer results',
+    value: '336 agent runs',
+    detail:
+      'Forty-two source–target transfers are evaluated across two models and four conditions: no reference, raw diff, DevSkill, and Hermes Skill. Released patches, token and API-time usage, executability, functional scores, architecture, security, and style measures support reanalysis.',
+  },
+  {
+    label: 'Longitudinal study',
+    value: '32 sequential tasks',
+    detail:
+      'A chronological Electron, React, and TypeScript application history records task prompts, developer-completed transitions, optional no-reference and Skill-guided runs, action traces, and snapshots of a Skill Pool that evolves to 15 active Skills.',
   },
 ]
